@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  userservice:
+    image: ${DOCKER_REGISTRY-}FBankUserService
+    build:
+      context: .
+      dockerfile: UserService/Dockerfile
+  db:
+     image: "mcr.microsoft.com/mssql/server:2019-latest"
+
+
