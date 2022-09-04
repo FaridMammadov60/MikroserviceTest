@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server
+  userservice:
+    build:
+      context: C:\Users\farid\Desktop\MikroBanking\MirkoBanking
+      dockerfile: UserService/Dockerfile
+    container_name: BankUserService
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: query
+    image: userservice
+    ports:
+    - published: 1433
+      target: 1433
+    restart: always
+version: '3.4'
